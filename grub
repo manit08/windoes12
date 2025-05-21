@@ -1,0 +1,11 @@
+void kernel_main() {
+    const char *message = "Welcome to Windoes 12!";
+    char *video_memory = (char*) 0xb8000;
+
+    for (int i = 0; message[i] != '\0'; ++i) {
+        video_memory[i * 2] = message[i];
+        video_memory[i * 2 + 1] = 0x0F; // White on black
+    }
+
+    while (1) {}
+}
